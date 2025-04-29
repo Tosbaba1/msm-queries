@@ -1,0 +1,3 @@
+<h1> Eldest Director</h1>
+
+The eldest director in our dataset right now is <%= link_to @oldest_director.name, "/directors/#{@oldest_director.id}" %> born on <%= @oldest_director.dob.strftime("%B %-d, %Y")%>.

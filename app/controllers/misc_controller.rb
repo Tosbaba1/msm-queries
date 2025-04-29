@@ -24,10 +24,12 @@ class MiscController < ApplicationController
   end
 
   def youngest
+    @youngest_director = Director.where.not(dob: nil).order(dob: :desc).first
     render({ :template => "misc_templates/young"})
   end
 
   def eldest
+    @oldest_director = Director.where.not(dob: nil).order(dob: :desc).last
     render({ :template => "misc_templates/old"})
   end
 
