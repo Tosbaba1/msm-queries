@@ -35,4 +35,9 @@ class MiscController < ApplicationController
     @list_of_actors = Actor.all
     render({ :template => "misc_templates/actor"})
   end
+
+  def show_actors
+    @actor = Actor.find(params[:the_id])
+    render ({ template: "misc_templates/show_actors"})
+  end
 end

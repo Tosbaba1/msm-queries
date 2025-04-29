@@ -5,7 +5,7 @@
 <p><%= @director.name %></p>
 
 <p>Dob</p>
-<p><%= @director.dob.strftime("%B %-d, %Y") if @director.dob %></p>
+<p><%= @director.dob.strftime("%Y-%m-%e") if @director.dob %></p>
 
 <p>Bio</p>
 <p><%= @director.bio %></p>
