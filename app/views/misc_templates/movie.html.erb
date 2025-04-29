@@ -1,0 +1,25 @@
+<h1>List of all movies </h1>
+<table border="1" cellpadding="4" cellspacing="0" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list_of_movies.order({:year => :desc, :title => :asc}).each do |a_movie|%>
+      <tr>
+        <td><%= a_movie.id %></td>
+        <td><%= image_tag(a_movie.image, width: 150) %></td>
+        <td> <%= a_movie.title %> </td>
+        <td> <%= a_movie.year %> </td>
+        <td> <%= a_movie.director.name %> </td>
+        <td> <%= link_to "Show details", "/movies/#{a_movie.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

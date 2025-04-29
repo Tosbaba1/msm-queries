@@ -1,0 +1,47 @@
+<h1>Director #<%= @director.id %> details</h1>
+<a href="/directors">Go back</a>
+
+<p>Name</p>
+<p><%= @director.name %></p>
+
+<p>Dob</p>
+<p><%= @director.dob.strftime("%B %-d, %Y") if @director.dob %></p>
+
+<p>Bio</p>
+<p><%= @director.bio %></p>
+
+<p>Image</p>
+<p><%= image_tag(@director.image, width: 150) %></p>
+
+<h2> Filmography </h2>
+
+<table border="1" cellpadding="4" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @director.movies.each do |movie| %>
+      <tr>
+        <td><%= movie.id %></td>
+        <td>
+          <%= image_tag(movie.image, alt: movie.title, width: 150) %>
+        </td>
+        <td>
+          <%= movie.title %>
+        </td>
+        <td><%= movie.year %></td>
+        <td><%= @director.name %></td>
+        <td>
+          <%= link_to "Show details", "/movies/#{movie.id}" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<h1>List of all directors </h1>
+<table border="1" cellpadding="4" cellspacing="0" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Dob</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list_of_directors.order({:dob => :desc}).each do |a_director|%>
+      <tr>
+        <td><%= a_director.id %></td>
+        <td><%= image_tag(a_director.image, width: 150) %></td>
+        <td> <%= a_director.name %> </td>
+        <td> <%= a_director.dob.strftime("%Y -%m -%e") if a_director.dob %> </td>
+        <td> <%= link_to "Show details", "/directors/#{a_director.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

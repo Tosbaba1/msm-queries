@@ -1,0 +1,23 @@
+<h1>List of all actors </h1>
+<table border="1" cellpadding="4" cellspacing="0" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Dob</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list_of_actors.each do |a_actor|%>
+      <tr>
+        <td><%= a_actor.id %></td>
+        <td><%= image_tag(a_actor.image, width: 150) %></td>
+        <td> <%= a_actor.name %> </td>
+        <td> <%= a_actor.dob.strftime("%Y -%m -%e") if a_actor.dob %> </td>
+        <td> <%= link_to "Show details", "/actors/#{a_actor.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
