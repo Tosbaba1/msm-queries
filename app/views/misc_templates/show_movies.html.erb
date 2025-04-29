@@ -14,7 +14,11 @@
 <p><%= @movie.description %></p>
 
 <p>Image</p>
-<p><%= image_tag(@movie.image, width: 150) %></p>
+<% if @movie.image.present? %>
+  <p><%= image_tag(@movie.image, width: 250) %></p>
+<% else %>
+  <p><em>No poster available</em></p>
+<% end %>
 
 <p>Director</p>
 <p><%= @movie.director.name%></p>

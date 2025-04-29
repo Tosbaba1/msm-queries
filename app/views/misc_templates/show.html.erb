@@ -11,7 +11,11 @@
 <p><%= @director.bio %></p>
 
 <p>Image</p>
-<p><%= image_tag(@director.image, width: 150) %></p>
+<p><% if @director.image.present? %>
+    <p><%= image_tag(@director.image, width: 250) %></p>
+  <% else %>
+    <p><em>No poster available</em></p>
+  <% end %></p>
 
 <h2> Filmography </h2>
 
@@ -30,17 +34,15 @@
     <% @director.movies.each do |movie| %>
       <tr>
         <td><%= movie.id %></td>
-        <td>
-          <%= image_tag(movie.image, alt: movie.title, width: 150) %>
-        </td>
-        <td>
-          <%= movie.title %>
-        </td>
+        <td><% if movie.image.present? %>
+            <p><%= image_tag(movie.image, width: 250) %></p>
+          <% else %>
+            <p><em>No poster available</em></p>
+          <% end %></td>
+        <td><%= movie.title %></td>
         <td><%= movie.year %></td>
         <td><%= @director.name %></td>
-        <td>
-          <%= link_to "Show details", "/movies/#{movie.id}" %>
-        </td>
+        <td><%= link_to "Show details", "/movies/#{movie.id}" %></td>
       </tr>
     <% end %>
   </tbody>

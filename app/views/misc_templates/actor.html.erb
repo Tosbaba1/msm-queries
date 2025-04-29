@@ -15,7 +15,7 @@
         <td><%= a_actor.id %></td>
         <td><%= image_tag(a_actor.image, width: 150) %></td>
         <td> <%= a_actor.name %> </td>
-        <td> <%= a_actor.dob.strftime("%Y -%m -%e") if a_actor.dob %> </td>
+        <td> <%= a_actor.dob.strftime("%Y-%m-%e") if a_actor.dob %> </td>
         <td> <%= link_to "Show details", "/actors/#{a_actor.id}" %></td>
       </tr>
     <% end %>
